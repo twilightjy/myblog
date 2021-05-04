@@ -1,0 +1,88 @@
+#配置端口
+server:
+  port: 8080
+
+#配置mysql数据库
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.98.134.66:3306/blog?serverTimezone=GMT%2B8&allowMultiQueries=true
+    username: root
+    password: 123456
+    hikari:
+      minimum-idle: 5
+      # 空闲连接存活最大时间，默认600000（10分钟）
+      idle-timeout: 180000
+      # 连接池最大连接数，默认是10
+      maximum-pool-size: 10
+      # 此属性控制从池返回的连接的默认自动提交行为,默认值：true
+      auto-commit: true
+      # 连接池名称
+      pool-name: MyHikariCP
+      # 此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
+      max-lifetime: 1800000
+      # 数据库连接超时时间,默认30秒，即30000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+  #redis配置 47.98.134.66
+  redis:
+    host: 47.98.134.66
+    port: 6379
+    password: 123456
+  #mq配置
+  rabbitmq:
+    host: 47.98.134.66
+    port: 5672
+    username: root
+    password: 123456
+  #邮箱配置
+  mail:
+    host: smtp.qq.com
+    username: 1362410372
+    password: zpfrwcyvbihyhecg
+    default-encoding: UTF-8
+    port: 587
+    properties:
+      mail:
+      smtp:
+      auth: true
+      socketFactory:
+      class: javax.net.ssl.SSLSocketFactory
+  #图片大小限制
+  servlet:
+    multipart:
+      max-file-size: 40MB
+      max-request-size: 100MB
+
+#es配置 47.98.134.66
+elasticsearch:
+  host: 47.98.134.66
+  port: 9200
+
+#配置MybatisPlus
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+
+#第三方配置信息
+qq:
+  app-id: "101948258"
+  user-info-url: "https://graph.qq.com/user/get_user_info?openid={openid}&access_token={access_token}&oauth_consumer_key={oauth_consumer_key}"
+
+weibo:
+  app-id: "686718914"
+  app-secret: "5c0e5ddb41acc0b98566cf75ae425826"
+  grant-type: "authorization_code"
+  redirect-url: "http://www.twilightjy.com/oauth/login/weibo"
+  access-token-url: "https://api.weibo.com/oauth2/access_token"
+  user-info-url: "https://api.weibo.com/2/users/show.json?uid={uid}&access_token={access_token}"
+
+aliyun:
+  url: "twilightjy.oss-cn-hangzhou.aliyuncs.com"
+  endpoint: "http://oss   -cn-hangzhou.aliyuncs.com"
+  accessKeyId: "LTAI5tCeL6xs5PMQgJcAWDaf"
+  accessKeySecret: "b0xsoYtm7MaCJDq0y5RwB7JvAii6YE"
+  bucketName: "twilightjy"
