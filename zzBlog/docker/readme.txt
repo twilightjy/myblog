@@ -1,0 +1,2 @@
+DockerFile用来构建后端项目镜像，.sh脚本用来启动DockerFile
+这两个文件不需要修改，只要注意最后的jar包名称要是blog-0.0.1.jar

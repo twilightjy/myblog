@@ -1,0 +1,1 @@
+在linux的/usr/local/nginx下（映射到docker里）创建nginx.conf文件，修改后粘贴。
